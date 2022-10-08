@@ -1,22 +1,20 @@
-public class MailMessage<S extends  String> {
-    private S from;
-    private S to;
-    private S message;
-    public MailMessage(S from , S to, S message) {
+public class MailMessage implements Sendable{
+    private String from;
+    private String to;
+    private String content;
+    public MailMessage(String from , String to, String message) {
         this.from = from;
         this.to = to;
-        this.message = message;
+        this.content = message;
     }
 
-    public S getFrom()  {
-        return from;
+    public String getFrom()  { return this.from; }
+
+    public String getContent() {
+        return this.content;
     }
 
-    public S getMessage() {
-        return message;
-    }
-
-    public S getTo() {
-        return to;
+    public String getTo() {
+        return this.to;
     }
 }

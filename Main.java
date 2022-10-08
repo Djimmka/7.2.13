@@ -1,6 +1,9 @@
 import java.util.*;
 import java.util.function.*;
 public class Main {
+    public static void main(String[] args) {
+
+
     // Random variables
     String randomFrom = "..."; // Некоторая случайная строка. Можете выбрать ее самостоятельно.
     String randomTo = "...";  // Некоторая случайная строка. Можете выбрать ее самостоятельно.
@@ -13,7 +16,7 @@ public class Main {
             "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
     );
 
-
+boolean i = firstMessage.getFrom().equals("Robert Howard");
 assert firstMessage.getFrom().equals("Robert Howard"): "Wrong firstMessage from address";
 assert firstMessage.getTo().equals("H.P. Lovecraft"): "Wrong firstMessage to address";
 assert firstMessage.getContent().endsWith("Howard!"): "Wrong firstMessage content ending";
@@ -77,4 +80,5 @@ Arrays.asList(salary1, salary2, salary3).forEach(salaryService);
 assert salaries.get(salary1.getTo()).equals(Arrays.asList(1)): "wrong salaries mailbox content (1)";
 assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)): "wrong salaries mailbox content (2)";
 assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";
+    }
 }
