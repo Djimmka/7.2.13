@@ -16,8 +16,13 @@ public class MailService<T> implements Consumer {
     }
 
     public <T> Map<String, List<T>> getMailBox() {
-        Map<String, List<T>> result = new HashMap<>();
-        List<T> lst = new ArrayList<>();
+        Map<String, List<T>> result = new HashMap<>() {
+            @Override
+            public List<T> get(Object key) {
+                return this.getOrDefault(key, new ArrayList<>());
+            }
+        };;
+//        List<T> lst = new ArrayList<>();
 //        items.forEach(
 //                s-> {
 //                    lst.clear();
@@ -29,7 +34,7 @@ public class MailService<T> implements Consumer {
         List<T> mails = new ArrayList<T>((Collection<? extends T>) items.keySet());
         List<String> to = new ArrayList<>(items.values());
         for (T mail : mails) {
-            lst.clear();
+            List<T> lst = new ArrayList<>();
             if (result.containsKey(items.get(mail))) {
                 lst = result.get(items.get(mail));
             }
